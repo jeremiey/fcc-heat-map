@@ -2,4 +2,4 @@
 
 > **Live Preview: <https://jeremiey.github.io/heat-map/>**
 
-
+Dataset used to complete this project: <https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json>
