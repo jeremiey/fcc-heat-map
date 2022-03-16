@@ -16,6 +16,9 @@ let canvas = d3.select('#canvas')
 
 let generateScales = () => {
 
+  xScale = d3.scaleLinear()
+             .range([padding, width - padding])
+
 }
 
 let drawCells = () => {
@@ -23,7 +26,12 @@ let drawCells = () => {
 }
 
 let drawAxes = () => {
+  let xAxis = d3.axisBottom(xScale)
 
+  canvas.append('g')
+        .call(xAxis)
+        .attr('id', 'x-axis')
+        .attr('transform', `translate(0, ${height - padding})`)
 }
 
 fetch(url)
