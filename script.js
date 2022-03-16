@@ -26,6 +26,12 @@ let generateScales = () => {
 
 let drawCells = () => {
 
+  canvas.selectAll('rect')
+        .data(values)
+        .enter()
+        .append('rect')
+        .attr('class', 'cell')
+           
 }
 
 let drawAxes = () => {
