@@ -1,7 +1,7 @@
 let url = "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json"
 
-let baseTemplate
-let values
+let baseTemp
+let values = []
 
 let xScale
 let yScale
@@ -28,7 +28,11 @@ let drawAxes = () => {
 
 fetch(url)
   .then(response => response.json())
-  .then(data => {
-    values = data
+  .then(dataset => {
+    values = dataset
+    baseTemp = dataset['baseTemperature']
     console.log(values)
+    generateScales()
+    drawCells()
+    drawAxes()
   })
