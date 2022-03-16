@@ -12,7 +12,7 @@ let padding = 60
 
 let canvas = d3.select('#canvas')
                .attr('width', width)
-               .height('height', height)
+               .attr('height', height)
 
 let generateScales = () => {
 
@@ -25,3 +25,10 @@ let drawCells = () => {
 let drawAxes = () => {
 
 }
+
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    values = data
+    console.log(values)
+  })
