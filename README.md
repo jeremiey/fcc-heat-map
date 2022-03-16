@@ -1,2 +1,5 @@
-# heat-map
-A Heat Map created with D3 for freeCodeCamp's visualize data with a heat map project.
+# D3 Heat Map
+
+> **Live Preview: <https://jeremiey.github.io/heat-map/>**
+
+
