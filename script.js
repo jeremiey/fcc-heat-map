@@ -43,6 +43,15 @@ let drawCells = () => {
             return 'Crimson'
           }
         })
+        .attr('data-year', (item) => {
+          return item
+        })
+        .attr('data-month', (item) => {
+          return item
+        })
+        .attr('data-temp', (item) => {
+          return item
+        })
            
 }
 
