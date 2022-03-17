@@ -6,6 +6,9 @@ let values = []
 let xScale
 let yScale
 
+let minYear
+let maxYear
+
 let width = 1200
 let height = 600
 let padding = 60
@@ -16,7 +19,16 @@ let canvas = d3.select('#canvas')
 
 let generateScales = () => {
 
+  minYear = d3.min(values, (item) => {
+    return item['year']
+  })
+
+  maxYear = d3.max(values, (item) => {
+    return item['year']
+  })
+
   xScale = d3.scaleLinear()
+             .domain([minYear, maxYear + 1])
              .range([padding, width - padding])
 
   yScale = d3.scaleTime()
@@ -26,6 +38,8 @@ let generateScales = () => {
 }
 
 let drawCells = () => {
+
+  let numberOfYears = maxYear - minYear
 
   canvas.selectAll('rect')
         .data(values)
@@ -53,17 +67,21 @@ let drawCells = () => {
         .attr('data-temp', (item) => {
           return baseTemp + item['variance']
         })
-        .attr('height', (item) => {
-          return (height - (2 * padding)) / 12
-        })
+        .attr('height', (height - (2 * padding)) / 12)
         .attr('y', (item) => {
           return yScale(new Date(0, item['month'] - 1, 0, 0, 0, 0, 0))
+        })
+        .attr('width', (width - (2 * padding)) / numberOfYears)
+        .attr('x', (item) => {
+          return xScale(item['year'])
         })
            
 }
 
 let drawAxes = () => {
   let xAxis = d3.axisBottom(xScale)
+                .tickFormat(d3.format('d')) // removes comma from the numbers
+
   let yAxis = d3.axisLeft(yScale)
 
   canvas.append('g')
