@@ -83,6 +83,7 @@ let drawAxes = () => {
                 .tickFormat(d3.format('d')) // removes comma from the numbers
 
   let yAxis = d3.axisLeft(yScale)
+                .tickFormat(d3.timeFormat('%B')) // shows the full month name
 
   canvas.append('g')
         .call(xAxis)
