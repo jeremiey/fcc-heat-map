@@ -74,7 +74,7 @@ let drawAxes = () => {
 fetch(url)
   .then(response => response.json())
   .then(dataset => {
-    values = dataset
+    values = dataset['monthlyVariance']
     baseTemp = dataset['baseTemperature']
     console.log(values)
     generateScales()
