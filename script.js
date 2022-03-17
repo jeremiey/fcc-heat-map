@@ -19,7 +19,8 @@ let generateScales = () => {
   xScale = d3.scaleLinear()
              .range([padding, width - padding])
 
-  yScale = d3.scaleLinear()
+  yScale = d3.scaleTime()
+             .domain([new Date(0,0,0,0, 0, 0, 0), new Date(0,12,0,0,0,0,0)])
              .range([padding, height - padding])
 
 }
@@ -51,6 +52,12 @@ let drawCells = () => {
         })
         .attr('data-temp', (item) => {
           return baseTemp + item['variance']
+        })
+        .attr('height', (item) => {
+          return (height - (2 * padding)) / 12
+        })
+        .attr('y', (item) => {
+          return yScale(new Date(0, item['month'] - 1, 0, 0, 0, 0, 0))
         })
            
 }
