@@ -13,10 +13,6 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-svg {
-  background-color: whitesmoke;
-}
-
 #canvas {
   min-height: 600px;
   min-width: 1200px;
