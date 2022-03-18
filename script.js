@@ -84,7 +84,10 @@ let drawCells = () => {
           let monthNames = ["January", "February", "March", "April", "May", "June", 
                             "July", "August", "September", "October", "November", "December"]
 
-          tooltip.text(`${item['year']} - ${monthNames[item['month'] - 1]}: ${baseTemp + item['variance']} (${item['variance']})`)
+          tooltip.text(`${item['year']} - ${monthNames[item['month'] - 1]}: 
+                        ${baseTemp + item['variance']} (${item['variance']})`)
+          
+          tooltip.attr('data-year', item['year'])
         })
         .on('mouseout', (item) => {
           tooltip.transition()
