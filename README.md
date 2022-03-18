@@ -6,6 +6,6 @@
 
 User stories can be found at <https://www.freecodecamp.org/learn/data-visualization/data-visualization-projects/visualize-data-with-a-heat-map>
 
-# Screenshot
+## Screenshot
 
 ![Screenshot from 2022-03-18 02-19-42](https://user-images.githubusercontent.com/87664239/158919403-7d1aa766-0979-4c4b-b05c-0e5fc4666858.png)
